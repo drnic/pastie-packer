@@ -20,7 +20,7 @@ EOS
   end
 
   def teardown
-    # FileUtils.rm_rf unpack_folder
+    FileUtils.rm_rf unpack_folder
   end
 
   def test_pack_complete_folder_structure

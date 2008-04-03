@@ -8,6 +8,7 @@ config/requirements.rb
 lib/pastie_packer.rb
 lib/pastie_packer/version.rb
 log/debug.log
+script/console
 script/destroy
 script/generate
 script/txt2html
@@ -15,6 +16,8 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
+test/fixtures/README.txt
+test/fixtures/lib/myapp.rb
 test/test_helper.rb
 test/test_pastie_packer.rb
 website/index.html

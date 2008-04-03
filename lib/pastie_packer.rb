@@ -25,13 +25,9 @@ class PastiePacker
     FileUtils.mkdir_p target_path
     FileUtils.cd target_path do
       files_contents = string.split(/^## /)[1..-1] # ignore first ""
-      p files_contents
       files_contents.each do |file_contents|
-        p file_contents.split(/\n/)
-        file_name, *contents = file_contents.split(/\n{1}/)
-        p contents
-        contents = contents.join("\n")
-        p contents
+        file_name, contents = file_contents.match(/([^\n]+)\n(.*)/m)[1,2]
+        contents = contents.gsub(/\n\Z/,'')
         base_name, *dirname = file_name.split('/').reverse
         dirname = dirname.join('/')
         FileUtils.mkdir_p dirname if dirname.length > 0
