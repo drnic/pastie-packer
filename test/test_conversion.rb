@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestPastiePacker < Test::Unit::TestCase
+class TestConversion < Test::Unit::TestCase
   attr_reader :base_folder, :unpack_folder
 
   COMPLETE_PASTIE = <<-EOS
@@ -34,4 +34,5 @@ EOS
     diff = `diff -ur #{base_folder} #{unpack_folder}`
     assert_equal("", diff)
   end
+
 end
