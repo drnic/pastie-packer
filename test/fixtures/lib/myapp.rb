@@ -1,0 +1,3 @@
+class Myapp
+  
+end
