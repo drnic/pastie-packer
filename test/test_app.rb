@@ -9,7 +9,7 @@ class TestApp < Test::Unit::TestCase
   end
 
   def test_pack_current_folder
-    PastiePacker.expects(:post).with(COMPLETE_PASTIE).returns("http://pastie.caboo.se/123456")
+    PastiePacker::API.expects(:paste).with(COMPLETE_PASTIE).returns("http://pastie.caboo.se/123456")
     folder = File.dirname(__FILE__) + "/fixtures"
     FileUtils.cd folder do
       PastiePacker.run
