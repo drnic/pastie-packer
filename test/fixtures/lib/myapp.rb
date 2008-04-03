@@ -1,3 +1,3 @@
 class Myapp
-  
+
 end
