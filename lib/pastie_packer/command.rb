@@ -16,8 +16,9 @@ class PastiePacker
   def do_unpack(pastie_urls)
     pastie_urls.each do |raw_url|
       url = raw_url.gsub(/\.txt$/,'')
+      unique_subfolder = url.match(/\/([^\/]*)$/)[1]
       contents = self.fetch_pastie(url)
-      unpack(contents, FileUtils.pwd)
+      unpack(contents, File.join(FileUtils.pwd, unique_subfolder))
     end
     nil # so nothing is printed as a result
   end

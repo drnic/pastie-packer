@@ -26,7 +26,8 @@ class TestApp < Test::Unit::TestCase
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456")
     end
-    diff = `diff -ur #{base_folder} #{target_folder}`
+    assert(File.directory?("#{target_folder}/123456"), "/123456 folder not created")
+    diff = `diff -ur #{base_folder} #{target_folder}/123456`
     assert_equal("", diff)
   end
 
@@ -36,7 +37,8 @@ class TestApp < Test::Unit::TestCase
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456.txt")
     end
-    diff = `diff -ur #{base_folder} #{target_folder}`
+    assert(File.directory?("#{target_folder}/123456"), "/123456 folder not created")
+    diff = `diff -ur #{base_folder} #{target_folder}/123456`
     assert_equal("", diff)
   end
 end
