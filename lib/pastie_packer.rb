@@ -10,4 +10,5 @@ require 'cgi'
 require "ruby-ext/hash"
 require "pastie_packer/conversion"
 require "pastie_packer/upload"
+require "pastie_packer/fetch"
 require "pastie_packer/command"

@@ -9,6 +9,7 @@ config/requirements.rb
 lib/pastie_packer.rb
 lib/pastie_packer/command.rb
 lib/pastie_packer/conversion.rb
+lib/pastie_packer/fetch.rb
 lib/pastie_packer/upload.rb
 lib/pastie_packer/version.rb
 lib/ruby-ext/hash.rb
