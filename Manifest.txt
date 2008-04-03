@@ -11,6 +11,7 @@ lib/pastie_packer/command.rb
 lib/pastie_packer/conversion.rb
 lib/pastie_packer/upload.rb
 lib/pastie_packer/version.rb
+lib/ruby-ext/hash.rb
 log/debug.log
 script/console
 script/destroy

@@ -34,7 +34,7 @@ class PastiePacker
 
     private
       def valid_parser?(format)
-        Pastie::AVAILABLE_PARSERS.include?(format)
+        PastiePacker::AVAILABLE_PARSERS.include?(format)
       end
   end
 

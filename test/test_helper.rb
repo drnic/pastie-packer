@@ -11,7 +11,7 @@ end
 
 require File.dirname(__FILE__) + '/../lib/pastie_packer'
 
-COMPLETE_PASTIE = <<-EOS
+$complete_pastie = <<-EOS
 ## README.txt
 This is the readme.txt
 
