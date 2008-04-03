@@ -3,17 +3,6 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestConversion < Test::Unit::TestCase
   attr_reader :base_folder, :unpack_folder
 
-  COMPLETE_PASTIE = <<-EOS
-## README.txt
-This is the readme.txt
-
-
-## lib/myapp.rb
-class Myapp
-
-end
-EOS
-
   def setup
     @base_folder    = File.dirname(__FILE__) + "/fixtures"
     @unpack_folder  = File.dirname(__FILE__) + "/unpacked"

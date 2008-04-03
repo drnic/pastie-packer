@@ -5,3 +5,4 @@ require "fileutils"
 
 require "pastie_packer/conversion"
 require "pastie_packer/upload"
+require "pastie_packer/command"

@@ -3,9 +3,13 @@ License.txt
 Manifest.txt
 README.txt
 Rakefile
+bin/pastie_packer
 config/hoe.rb
 config/requirements.rb
 lib/pastie_packer.rb
+lib/pastie_packer/command.rb
+lib/pastie_packer/conversion.rb
+lib/pastie_packer/upload.rb
 lib/pastie_packer/version.rb
 log/debug.log
 script/console
@@ -18,8 +22,9 @@ tasks/environment.rake
 tasks/website.rake
 test/fixtures/README.txt
 test/fixtures/lib/myapp.rb
+test/test_app.rb
+test/test_conversion.rb
 test/test_helper.rb
-test/test_pastie_packer.rb
 website/index.html
 website/index.txt
 website/javascripts/rounded_corners_lite.inc.js
