@@ -19,5 +19,6 @@ class PastiePacker
       contents = self.fetch_pastie(url)
       unpack(contents, FileUtils.pwd)
     end
+    nil # so nothing is printed as a result
   end
 end

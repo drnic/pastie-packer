@@ -43,4 +43,5 @@ path = OPTIONS[:path]
 
 # do stuff
 require File.dirname(__FILE__) + "/../lib/pastie_packer"
-puts PastiePacker.run(ARGV)
+output = PastiePacker.run(ARGV)
+puts output if output
