@@ -13,12 +13,12 @@ class TestConversion < Test::Unit::TestCase
   end
 
   def test_pack_complete_folder_structure
-    packed_folder = PastiePacker.path_to_string base_folder
+    packed_folder = PastiePacker.new.path_to_string base_folder
     assert_equal($complete_pastie, packed_folder)
   end
 
   def test_unpack_complete_folder_structure
-    folder = PastiePacker.unpack($complete_pastie, unpack_folder)
+    folder = PastiePacker.new.unpack($complete_pastie, unpack_folder)
     assert_equal(unpack_folder, folder)
     diff = `diff -ur #{base_folder} #{unpack_folder}`
     assert_equal("", diff)

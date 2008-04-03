@@ -1,5 +1,5 @@
 class PastiePacker
-  def self.path_to_string(path)
+  def path_to_string(path)
     output = ""
     FileUtils.cd path do
       files = Dir['**/*'].sort
@@ -15,11 +15,11 @@ class PastiePacker
     output
   end
   
-  def self.unpack(string, target_path)
-    FileUtils.rm_rf target_path # unique pastie-number-based folder shouldn't be there; its not my fault!!!
+  def unpack(contents, target_path)
+    FileUtils.rm_rf "target_path/*" # unique pastie-number-based folder shouldn't be there; its not my fault!!!
     FileUtils.mkdir_p target_path
     FileUtils.cd target_path do
-      files_contents = string.split(/^## /)[1..-1] # ignore first ""
+      files_contents = contents.split(/^## /)[1..-1] # ignore first ""
       files_contents.each do |file_contents|
         file_name, contents = file_contents.match(/([^\n]+)\n(.*)/m)[1,2]
         contents = contents.gsub(/\n\Z/,'')
