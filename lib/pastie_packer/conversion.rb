@@ -2,19 +2,24 @@ class PastiePacker
   def path_to_string(path)
     output = ""
     FileUtils.cd path do
-      files = Dir['**/*'].sort
-      output = files.inject([]) do |mem, file|
-        if File.file?(file)
-          mem << "## #{file}"
-          mem << File.open(file, 'r').read
-          mem << ""
-        end
-        mem
-      end.join("\n")
+      output = files_to_string Dir['**/*'].sort
     end
     output
   end
-  
+
+  def files_to_string(files)
+    output = files.inject([]) do |mem, file|
+      file = file.strip
+      if File.file?(file)
+        mem << "## #{file}"
+        mem << File.open(file, 'r').read
+        mem << ""
+      end
+      mem
+    end.join("\n")
+    output
+  end
+
   def unpack(contents, target_path)
     FileUtils.rm_rf "target_path/*" # unique pastie-number-based folder shouldn't be there; its not my fault!!!
     FileUtils.mkdir_p target_path
@@ -23,9 +28,7 @@ class PastiePacker
       files_contents.each do |file_contents|
         file_name, contents = file_contents.match(/([^\n]+)\n(.*)/m)[1,2]
         contents = contents.gsub(/\n\Z/,'')
-        base_name, *dirname = file_name.split('/').reverse
-        dirname = dirname.join('/')
-        FileUtils.mkdir_p dirname if dirname.length > 0
+        FileUtils.mkdir_p File.dirname(file_name)
         File.open(file_name, "w") do |f|
           f << contents
         end

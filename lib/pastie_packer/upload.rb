@@ -23,7 +23,7 @@ class PastiePacker
       if resp.code == '302'
         return resp['location']
       else
-        raise Pastie::Error
+        raise Error, "#{resp.code} - #{query_string.inspect}"
       end
     end
 
@@ -37,3 +37,12 @@ class PastiePacker
   class InvalidParser < StandardError; end
   
 end
+
+# 
+# irb(main):002:0> y = `file ~/Pictures/ryandavis2.jpg README.txt`
+# => "/Users/nicwilliams/Pictures/ryandavis2.jpg: JPEG image data, JFIF standard 1.01\nREADME.txt:                                 ASCII English text\n"
+# irb(main):003:0> YAML.load(y)
+# => {"/Users/nicwilliams/Pictures/ryandavis2.jpg"=>"JPEG image data, JFIF standard 1.01", "README.txt"=>"ASCII English text"}
+# irb(main):004:0> YAML.load(y).keys
+# => ["/Users/nicwilliams/Pictures/ryandavis2.jpg", "README.txt"]
+# file --mime ~/Pictures/ryandavis2.jpg README.txt

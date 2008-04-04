@@ -14,8 +14,19 @@ class TestApp < Test::Unit::TestCase
   end
 
   def test_pack_current_folder
-    folder = File.dirname(__FILE__) + "/fixtures"
-    FileUtils.cd folder do
+    PastiePacker::API.any_instance.expects(:paste).
+      with($complete_pastie).returns("http://pastie.caboo.se/123456")
+    FileUtils.cd base_folder do
+      PastiePacker.run
+    end
+  end
+
+  def test_pack_with_file_names
+    PastiePacker::API.any_instance.expects(:paste).
+      with($complete_pastie).returns("http://pastie.caboo.se/123456")
+    files = ["README.txt\n", "lib/myapp.rb\n"]
+    PastiePacker.any_instance.expects(:input_lines).returns(files)
+    FileUtils.cd base_folder do
       PastiePacker.run
     end
   end
@@ -41,4 +52,5 @@ class TestApp < Test::Unit::TestCase
     diff = `diff -ur #{base_folder} #{target_folder}/123456`
     assert_equal("", diff)
   end
+
 end

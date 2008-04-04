@@ -1,7 +1,9 @@
 class PastiePacker
   def self.run(args = [])
     packer = PastiePacker.new
-    if args.empty?
+    if !(files = packer.input_lines).empty?
+      packer.do_pack_files(files)
+    elsif args.empty?
       packer.do_pack
     else
       packer.do_unpack(args)
@@ -10,7 +12,12 @@ class PastiePacker
 
   def do_pack
     packed = self.path_to_string(FileUtils.pwd)
-    url = API.new.paste packed
+    url = API.new.paste packed if packed && !packed.empty?
+  end
+
+  def do_pack_files(files)
+    packed = self.files_to_string(files)
+    url = API.new.paste packed if packed && !packed.empty?
   end
 
   def do_unpack(pastie_urls)
