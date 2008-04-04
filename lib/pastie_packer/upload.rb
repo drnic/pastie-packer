@@ -23,7 +23,7 @@ class PastiePacker
       if resp.code == '302'
         return resp['location']
       else
-        raise Error, "#{resp.code} - #{query_string.inspect}"
+        raise Error, "#{resp.code} - #{query_string.inspect} - #{resp.inspect}"
       end
     end
 

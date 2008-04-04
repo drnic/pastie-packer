@@ -23,23 +23,27 @@ class PastiePacker
     output
   end
 
-  def unpack(contents, target_path)
+  def unpack(target_path)
     FileUtils.rm_rf "target_path/*" # unique pastie-number-based folder shouldn't be there; its not my fault!!!
     FileUtils.mkdir_p target_path
     FileUtils.cd target_path do
       files_contents = contents.split(/^## /)[1..-1] # ignore first ""
       files_contents.each do |file_contents|
         file_name, contents = file_contents.match(/([^\n]+)\n(.*)/m)[1,2]
-        contents = contents.gsub(/\n\Z/,'')
-        FileUtils.mkdir_p File.dirname(file_name)
-        File.open(file_name, "w") do |f|
-          f << contents
+        if file_name =~ /about:/
+          # ignoring header
+        else
+          contents = contents.gsub(/\n\Z/,'')
+          FileUtils.mkdir_p File.dirname(file_name)
+          File.open(file_name, "w") do |f|
+            f << contents
+          end
         end
       end
     end
     target_path
   end
-  
+
   protected
   def ascii?(file)
     MIME.check(file) == 'text/plain'

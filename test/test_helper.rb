@@ -21,3 +21,16 @@ class Myapp
 
 end
 EOS
+
+
+$complete_pastie_and_header_for_files = <<-EOS + $complete_pastie
+## about:
+Files uploaded by pastie_packer.
+To unpack files see http://pastiepacker.rubyforge.org
+EOS
+
+$complete_pastie_and_header = <<-EOS + $complete_pastie
+## about:fixtures
+Files for fixtures uploaded by pastie_packer.
+To unpack files see http://pastiepacker.rubyforge.org
+EOS
