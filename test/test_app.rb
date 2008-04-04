@@ -15,7 +15,8 @@ class TestApp < Test::Unit::TestCase
 
   def test_pack_current_folder
     PastiePacker::API.any_instance.expects(:paste).
-      with($complete_pastie_and_header).returns("http://pastie.caboo.se/123456")
+      with($complete_pastie_and_header, 'ruby', false).
+      returns("http://pastie.caboo.se/123456")
     FileUtils.cd base_folder do
       PastiePacker.run
     end
@@ -23,7 +24,8 @@ class TestApp < Test::Unit::TestCase
 
   def test_pack_with_file_names
     PastiePacker::API.any_instance.expects(:paste).
-      with($complete_pastie_and_header_for_files).returns("http://pastie.caboo.se/123456")
+      with($complete_pastie_and_header_for_files, 'ruby', false).
+      returns("http://pastie.caboo.se/123456")
     files = ["README.txt\n", "lib/myapp.rb\n"]
     PastiePacker.any_instance.expects(:input_lines).returns(files)
     FileUtils.cd base_folder do
@@ -32,9 +34,11 @@ class TestApp < Test::Unit::TestCase
   end
 
   def test_unpack_within_current_folder
-    PastiePacker.any_instance.expects(:fetch_pastie).with("http://pastie.caboo.se/123456").
+    PastiePacker.any_instance.expects(:fetch_pastie).
+      with("http://pastie.caboo.se/123456").
       returns($complete_pastie_and_header)
     PastiePacker.any_instance.expects(:parse_options)
+    PastiePacker.any_instance.expects(:args).returns(["http://pastie.caboo.se/123456"])
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456")
     end
@@ -44,9 +48,11 @@ class TestApp < Test::Unit::TestCase
   end
 
   def test_unpack_within_current_folder_raw_txt
-    PastiePacker.any_instance.expects(:fetch_pastie).with("http://pastie.caboo.se/123456").
+    PastiePacker.any_instance.expects(:fetch_pastie).
+      with("http://pastie.caboo.se/123456").
       returns($complete_pastie_and_header)
     PastiePacker.any_instance.expects(:parse_options)
+    PastiePacker.any_instance.expects(:args).returns(["http://pastie.caboo.se/123456.txt"])
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456.txt")
     end

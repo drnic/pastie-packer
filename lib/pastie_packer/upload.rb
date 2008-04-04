@@ -1,8 +1,9 @@
 class PastiePacker
   AVAILABLE_PARSERS = %w(
-    c diff html javascript
-    nitro_xhtml pascal plaintext
-    rhtml ruby sql
+    c++ css diff html_rails html javascript
+    php plain_text python
+    ruby ruby_on_rails sql
+    shell-unix-generic
   )
 
   class API

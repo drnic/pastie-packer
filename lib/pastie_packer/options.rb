@@ -1,5 +1,6 @@
 class PastiePacker
   attr_reader :format
+  attr_accessor :args
 
   def private?; @private; end
 
@@ -26,13 +27,15 @@ BANNER
               "Posted pasties are private",
               "Ignored for unpacking",
               "Default: false") { |x| @private = x }
-      opts.on("-f", "--format", String,
+      opts.on("-f", "--format=FORMAT", String,
               "Possess pasties with a particular persona",
+              "Supported formats:",
+              AVAILABLE_PARSERS.join(', '),
               "Ignored for unpacking",
               "Default: ruby") { |x| @format = x }
       opts.on("-h", "--help",
               "Show this help message.") { puts opts; exit }
-      opts.parse!(args)
+      self.args = opts.parse!(args)
     end
   end
 end
