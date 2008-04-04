@@ -34,6 +34,7 @@ class TestApp < Test::Unit::TestCase
   def test_unpack_within_current_folder
     PastiePacker.any_instance.expects(:fetch_pastie).with("http://pastie.caboo.se/123456").
       returns($complete_pastie_and_header)
+    PastiePacker.any_instance.expects(:parse_options)
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456")
     end
@@ -45,6 +46,7 @@ class TestApp < Test::Unit::TestCase
   def test_unpack_within_current_folder_raw_txt
     PastiePacker.any_instance.expects(:fetch_pastie).with("http://pastie.caboo.se/123456").
       returns($complete_pastie_and_header)
+    PastiePacker.any_instance.expects(:parse_options)
     FileUtils.cd target_folder do
       PastiePacker.run("http://pastie.caboo.se/123456.txt")
     end

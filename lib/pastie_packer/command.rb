@@ -1,8 +1,9 @@
 class PastiePacker
   attr_accessor :contents
-  
+
   def self.run(args = [])
     packer = PastiePacker.new
+    packer.parse_options(args)
     if !(files = packer.input_lines).empty?
       packer.do_pack_files(files)
     elsif args.empty?
