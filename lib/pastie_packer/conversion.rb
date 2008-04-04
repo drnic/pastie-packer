@@ -12,7 +12,10 @@ class PastiePacker
       file = file.strip
       if File.file?(file)
         mem << "## #{file}"
-        mem << File.open(file, 'r').read
+        if ascii? file
+          mem << File.open(file, 'r').read
+        else
+        end
         mem << ""
       end
       mem
@@ -35,5 +38,10 @@ class PastiePacker
       end
     end
     target_path
+  end
+  
+  protected
+  def ascii?(file)
+    MIME.check(file) == 'text/plain'
   end
 end

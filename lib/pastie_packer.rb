@@ -6,6 +6,7 @@ require 'net/http'
 require 'timeout'
 require 'cgi'
 
+require 'shared-mime-info' # shared-mime-info rubygem
 
 require "ruby-ext/hash"
 require "pastie_packer/io"
