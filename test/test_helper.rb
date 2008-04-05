@@ -9,7 +9,7 @@ rescue LoadError
   exit
 end
 
-require File.dirname(__FILE__) + '/../lib/pastie_packer'
+require File.dirname(__FILE__) + '/../lib/pastiepacker'
 
 $complete_pastie = <<-EOS
 ## README.txt
@@ -25,12 +25,12 @@ EOS
 
 $complete_pastie_and_header_for_files = <<-EOS + $complete_pastie
 ## about:
-Files uploaded by pastie_packer.
+Files uploaded by pastiepacker.
 To unpack files see http://pastiepacker.rubyforge.org
 EOS
 
 $complete_pastie_and_header = <<-EOS + $complete_pastie
 ## about:sample_app
-Files for sample_app uploaded by pastie_packer.
+Files for sample_app uploaded by pastiepacker.
 To unpack files see http://pastiepacker.rubyforge.org
 EOS

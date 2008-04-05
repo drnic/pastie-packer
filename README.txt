@@ -1,4 +1,4 @@
-= pastie_packer
+= pastiepacker
 
 * FIX (url)
 

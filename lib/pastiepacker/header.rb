@@ -8,13 +8,13 @@ class PastiePacker
     if title
       <<-EOS
 ## about:#{title}
-Files for #{title} uploaded by pastie_packer.
+Files for #{title} uploaded by pastiepacker.
 To unpack files see http://pastiepacker.rubyforge.org
 EOS
     else
       <<-EOS
 ## about:
-Files uploaded by pastie_packer.
+Files uploaded by pastiepacker.
 To unpack files see http://pastiepacker.rubyforge.org
 EOS
     end

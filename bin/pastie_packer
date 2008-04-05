@@ -3,6 +3,6 @@
 #  Created on 2008-4-3.
 #  Copyright (c) 2008. All rights reserved.
 
-require File.dirname(__FILE__) + "/../lib/pastie_packer"
+require File.dirname(__FILE__) + "/../lib/pastiepacker"
 output = PastiePacker.run(ARGV)
 puts output if output

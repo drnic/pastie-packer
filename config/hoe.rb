@@ -1,14 +1,14 @@
-require 'pastie_packer/version'
+require 'pastiepacker/version'
 
 AUTHOR = 'Dr Nic Williams'  # can also be an array of Authors
 EMAIL = "drnicwilliams@gmail.com"
 DESCRIPTION = <<-EOS
-Prepare to pack or unpack piles of files with the pastie_packer.
+Prepare to pack or unpack piles of files with the pastiepacker.
 
 To pack a folder: #{File.basename($0)}
 To pack some files ending with "txt": find * | grep "txt$" | #{File.basename($0)}
 - It outputs the url of the prepared pastie, so you can pipe it to xargs:
-- pastie_packer | xargs open
+- pastiepacker | xargs open
 
 To unpack a packed pastie: #{File.basename($0)} http://pastie.caboo.se/175183
 - This unpacks the files into a subfolder 175138/
@@ -42,7 +42,7 @@ REV = nil
 # UNCOMMENT IF REQUIRED: 
 # REV = `svn info`.each {|line| if line =~ /^Revision:/ then k,v = line.split(': '); break v.chomp; else next; end} rescue nil
 VERS = PastiePacker::VERSION::STRING + (REV ? ".#{REV}" : "")
-RDOC_OPTS = ['--quiet', '--title', 'pastie_packer documentation',
+RDOC_OPTS = ['--quiet', '--title', 'pastiepacker documentation',
     "--opname", "index.html",
     "--line-numbers", 
     "--main", "README",

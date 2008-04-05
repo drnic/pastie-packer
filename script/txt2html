@@ -11,10 +11,10 @@ end
 require 'redcloth'
 require 'syntax/convertors/html'
 require 'erb'
-require File.dirname(__FILE__) + '/../lib/pastie_packer/version.rb'
+require File.dirname(__FILE__) + '/../lib/pastiepacker/version.rb'
 
 version  = PastiePacker::VERSION::STRING
-download = 'http://rubyforge.org/projects/pastie_packer'
+download = 'http://rubyforge.org/projects/pastiepacker'
 
 class Fixnum
   def ordinal

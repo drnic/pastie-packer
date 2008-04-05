@@ -17,10 +17,10 @@ require 'shared-mime-info' # shared-mime-info rubygem
 require 'hpricot'
 
 require "ruby-ext/hash"
-require "pastie_packer/io"
-require "pastie_packer/options"
-require "pastie_packer/conversion"
-require "pastie_packer/upload"
-require "pastie_packer/fetch"
-require "pastie_packer/header"
-require "pastie_packer/command"
+require "pastiepacker/io"
+require "pastiepacker/options"
+require "pastiepacker/conversion"
+require "pastiepacker/upload"
+require "pastiepacker/fetch"
+require "pastiepacker/header"
+require "pastiepacker/command"
