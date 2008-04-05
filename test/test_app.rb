@@ -44,6 +44,18 @@ class TestApp < Test::Unit::TestCase
     end
   end
 
+  def test_pack_but_output_to_stdout
+    pastie = PastiePacker.new
+    pastie.expects(:to_stdout?).returns(true)
+    PastiePacker::API.any_instance.expects(:paste).never
+    output = mock()
+    output.expects(:puts).with($complete_pastie_and_header)
+    pastie.stubs(:output_stream).returns(output)
+    FileUtils.cd base_folder do
+      pastie.do_pack
+    end
+  end
+
   def test_unpack_within_current_folder
     PastiePacker.any_instance.expects(:fetch_pastie).
       with("http://pastie.caboo.se/123456").

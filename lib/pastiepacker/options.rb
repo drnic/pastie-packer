@@ -3,11 +3,13 @@ class PastiePacker
   attr_accessor :args
 
   def private?; @private; end
+  def to_stdout?; @to_stdout; end
 
   def parse_options(args)
     @private = false
     @format  = "ruby"
     @extra_message = nil
+    @to_stdout = false
 
     OptionParser.new do |opts|
       opts.banner = <<BANNER
@@ -37,6 +39,9 @@ BANNER
               "Posted pasties are private",
               "Ignored for unpacking",
               "Default: false") { |x| @private = x }
+      opts.on("-s", "--stdout",
+              "Prints packed pasties instead of posting",
+              "Default: false") { |x| @to_stdout = x }
       opts.on("-h", "--help",
               "Show this help message.") { puts opts; exit }
       self.args = opts.parse!(args)
