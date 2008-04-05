@@ -4,12 +4,14 @@ class PastiePacker
 
   def private?; @private; end
   def to_stdout?; @to_stdout; end
+  def no_header?; @no_header; end
 
   def parse_options(args)
     @private = false
     @format  = "ruby"
     @extra_message = nil
     @to_stdout = false
+    @no_header = false
 
     OptionParser.new do |opts|
       opts.banner = <<BANNER
@@ -42,6 +44,10 @@ BANNER
       opts.on("-s", "--stdout",
               "Prints packed pasties instead of posting",
               "Default: false") { |x| @to_stdout = x }
+      opts.on("-H", "--no-header",
+              "Prevents placing pastiepacker promotion in pasties",
+              "That is, no 'about:' section is added to the top of pasties",
+              "Default: false") { |x| @no_header = x }
       opts.on("-h", "--help",
               "Show this help message.") { puts opts; exit }
       self.args = opts.parse!(args)

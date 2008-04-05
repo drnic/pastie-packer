@@ -16,7 +16,7 @@ class PastiePacker
   def do_pack
     self.contents = self.path_to_string(FileUtils.pwd)
     if contents && !contents.empty?
-      add_header(File.basename(FileUtils.pwd))
+      add_header(File.basename(FileUtils.pwd)) unless no_header?
       do_paste
     end
   end
@@ -24,7 +24,7 @@ class PastiePacker
   def do_pack_files(files)
     self.contents = self.files_to_string(files)
     if contents && !contents.empty?
-      add_header
+      add_header unless no_header?
       do_paste
     end
   end

@@ -55,6 +55,17 @@ class TestApp < Test::Unit::TestCase
       pastie.do_pack
     end
   end
+  
+  def test_pack_but_no_header
+    pastie = PastiePacker.new
+    pastie.expects(:no_header?).returns(true)
+    PastiePacker::API.any_instance.expects(:paste).
+      with($complete_pastie, nil, nil).
+      returns("http://pastie.caboo.se/123456")
+    FileUtils.cd base_folder do
+      pastie.do_pack
+    end
+  end
 
   def test_unpack_within_current_folder
     PastiePacker.any_instance.expects(:fetch_pastie).
