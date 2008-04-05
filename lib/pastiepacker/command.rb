@@ -17,11 +17,7 @@ class PastiePacker
     self.contents = self.path_to_string(FileUtils.pwd)
     if contents && !contents.empty?
       add_header(File.basename(FileUtils.pwd))
-      if to_stdout?
-        output_stream.puts contents
-      else
-        url = API.new.paste contents, format, private?
-      end
+      do_paste
     end
   end
 
@@ -29,7 +25,7 @@ class PastiePacker
     self.contents = self.files_to_string(files)
     if contents && !contents.empty?
       add_header
-      url = API.new.paste contents, format, private?
+      do_paste
     end
   end
 

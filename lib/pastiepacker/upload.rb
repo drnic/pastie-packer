@@ -5,7 +5,15 @@ class PastiePacker
     ruby ruby_on_rails sql
     shell-unix-generic
   )
-
+  
+  def do_paste
+    if to_stdout?
+      output_stream.puts contents
+    else
+      url = API.new.paste contents, format, private?
+    end
+  end
+  
   class API
     PASTIE_URI = 'pastie.caboo.se'
 
