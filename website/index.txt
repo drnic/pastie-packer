@@ -2,13 +2,7 @@ h1. Pastie Packer
 
 h1. &#x2192; 'pastiepacker'
 
-TODO: put this into pastie + use screenshot instead (raw text as alt="...")
-
-TODO: create google group
-      
-TODO: set git url for contributions
-
-Prepare to _pack_ or _unpack_ piles of files with *pastiepacker*. The easiest, best distributing, viewable archiving tool since pencil and paper.
+<img src="images/pastiepacker pasted into own pastie.jpg" width="549" height="329" alt="Prepare to pack or unpack piles of files with pastiepacker. The easiest, best distributing, viewable archiving tool since pencil and paper.">
 
 h2. What
 
@@ -18,7 +12,7 @@ The *pastiepacker* is a command-line tool to "pack" a selection of files (or by 
 
 It can also "unpack" a packed pastie back into files. The pastiepacker is therefore a simple, useful distributed archiving tool, using pasties for storage.
 
-For example, this pastie "XXX":http://xxx shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself!
+For example, this pastie "http://pastie.caboo.se/175886":http://pastie.caboo.se/175886 shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself! (release 1.0.0)
 
 You can pack a whole folder or a selection of files. Any README/readme.* files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.
 
@@ -77,15 +71,18 @@ This unpacks the files into a subfolder 5hwfheniddqmyasmfcxaw/
 
 h2. Forum
 
-"http://groups.google.com/group/pastiepacker":http://groups.google.com/group/pastiepacker
-
-TODO - create Google Group - pastiepacker
+"http://groups.google.com/group/drnicutilities":http://groups.google.com/group/drnicutilities
 
 h2. How to submit patches
 
 Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
 
-The trunk repository is <code>svn://rubyforge.org/var/svn/pastiepacker/trunk</code> for anonymous access.
+The source for the Pastie Packer is "available via git":http://github.com/drnic/pastie-packer/tree/master.
+
+    git clone git://github.com/drnic/pastie-packer.git pastiepacker
+    rake install_gem
+
+Or, you can unpack the 1.0.0 release of the pastiepacker from its "own pastie":http://pastie.caboo.se/175886!
 
 h2. License
 
