@@ -30,7 +30,7 @@ To unpack files see http://pastiepacker.rubyforge.org
 EOS
 
 $complete_pastie_and_header = <<-EOS + $complete_pastie
-## about:fixtures
-Files for fixtures uploaded by pastie_packer.
+## about:sample_app
+Files for sample_app uploaded by pastie_packer.
 To unpack files see http://pastiepacker.rubyforge.org
 EOS

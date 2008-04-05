@@ -1,0 +1,263 @@
+<html>
+<head id="head">
+  <title>Private Paste - Pastie</title>
+
+</head>
+<body>
+
+<div id="topnews" style="display:none;">
+<p>
+		 Pastie now <a href="http://pastie.caboo.se/8763" class="subtle">auto-senses</a> if line-wrap is a bad or good idea.  <a href="http://beast.caboo.se/forums/4">Feedback?</a>
+	</p>
+</div>
+
+<div id="header">
+
+	<ul id="nav">
+		<li class="hot"><a href="/pastes/new">New</a></li>
+		
+		<li style="display:none;" class="loggedinonly">
+<!--
+			
+-->
+			<a href="" id="mine_nav_link">Mine</a>
+		
+		<li >
+			<a href="/pastes">All</a>
+
+			</li>
+
+		<li><a href="#" onclick="$('search').show(); $('search_box').focus();">Search</a>
+			</li>
+		<li id="search" style="display:none;">
+			<form action="/search/">
+				<input type="text" style="font-size:0.85em;" size="15" id="search_box" name="q" value="">
+			</form>
+		</li>
+
+		<li ><a href="/why/">Why</a></li>
+		<li ><a href="/help/">Help</a></li>
+		
+		<li class="login loggedinonly" style="display:none;" id="login_nick"></li>
+		
+	</ul>
+
+  <script language="javascript">logged_in_setup();</script>
+
+	<h1>
+
+		<img src="/images/pastie.gif" />
+		Pastie
+		<span class="sub"><a href='http://www.pledgie.com/campaign/show/16'>Show Pastie some love</a></span>
+<!--
+		<span class="sub">What'cha want for Christmas?</span>
+	<span class="count"> pasties and counting</span>	
+-->
+	</h1>
+	
+	
+</div>
+
+<!-- <div id="news">
+<p style="margin-bottom:0;">Now powered by <a href="http://www.sphinxsearch.com/">Sphinx</a>... Search doesn't suck anymore. :-)  Give it a spin.</p> 
+</div> -->
+
+<div id="container">
+
+
+<div id="content">
+	
+
+	
+
+
+
+
+<!--
+
+-->
+
+<!--
+<p class="private psmall" id="private">
+	<img src="/images/icons/mini/locked.gif" />
+	This paste is private.
+</p>
+-->
+
+
+
+
+
+
+
+<!-- only for someone who's logged in -->
+<p class="smallutils" id="wrapoptions" style="display:none;">
+
+  <a href="http://pastie.caboo.se/175214/wrap?key=5hwfheniddqmyasmfcxaw">Wrap text</a>
+
+</p>
+
+<script language="javascript">
+logged_in_setup();
+if (logged_in_user && logged_in_user=="")
+	{ $('wrapoptions').show(); }	
+</script>
+
+
+<div style="position:absolute; font-size:0.6em; color:#999; z-index:100; right:10px; top:10px;">
+<label style="font-size:1em; color:#aaa">Theme:</label>
+<select onchange="setActiveStyleSheet(this.value);" id="tm_theme_picker">
+	<option value="clean">Clean (Pastie)</option>
+<option value="all_hallows_eve">All Hallow's Eve</option>
+<option value="blackboard">Blackboard</option>
+
+<option value="brilliance_black">Brilliance Black</option>
+<option value="cobalt">Cobalt</option>
+<option value="expreso_libre">Espresso Libre</option>
+<option value="idle">IDLE</option>
+<option value="mac_classic">Mac Classic</option>
+<option value="magicwb_amiga">MagicWB (Amiga)</option>
+<option value="pastels_on_dark">Pastels on Dark</option>
+<option value="slate">Slate</option>
+<option value="slush_and_poppies">Slush and Poppies</option>
+
+<option value="sunburst">Sunburst</option>
+<option value="sunburst_josh">Sunburst (Josh)</option>
+<option value="twilight">Twilight</option>
+<option value="vibrant_ink">Vibrant Ink</option>
+</select>
+</div>
+
+
+
+
+
+<h2>about:pastie_packer </h2>
+
+
+
+
+
+
+	
+	<div class="allcode">
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td>
+				
+				<pre class="textmate-source-numbers">1
+2
+</pre>
+
+			</td>
+		<td>
+		<pre class="textmate-source"><pre class="sunburst"><span class='meta meta_paragraph meta_paragraph_text'>Files for pastie_packer uploaded by pastie_packer.
+To unpack files see <span class='markup markup_underline markup_underline_link'>http://pastiepacker.rubyforge.org</span>
+</pre></pre>
+		</td>
+		</tr>
+		</table>
+	
+	</div>
+
+
+<hr />
+
+
+</div>
+
+<div id="right">
+	
+
+
+
+
+  <p>
+  <label>Pasted</label><br />
+  <span class="typo_date" title="Fri, 04 Apr 2008 12:09:37 GMT" id='paste_date'>April 04, 2008<br /> 7:09AM EDT</span>
+  <script language="javascript">
+  	e=$('paste_date');
+  	e.innerHTML=get_local_time_for_date(e.title);
+  </script>
+
+  </p>
+
+
+  
+
+
+
+
+
+
+
+
+<p style="margin-top:2em; font-size:0.75em;">
+<a href="/pastes/175214/download?key=5hwfheniddqmyasmfcxaw" class="utility">Download</a>	
+<span class="pipe">|</span>
+<a href="http://pastie.caboo.se/175214.txt?key=5hwfheniddqmyasmfcxaw" class="utility">View</a>	
+</p>
+
+
+
+<p style="margin-top:2em;">
+<a href="/pastes/175214/reply?key=5hwfheniddqmyasmfcxaw">Paste again</a>	
+
+</p>
+
+
+
+
+
+
+<p style="margin-top:2em; display:none;" id="edit_link">
+	<a href="/pastes/175214/edit?key=5hwfheniddqmyasmfcxaw" class="utility remove">Edit paste</a>
+</p>
+
+<script language="javascript">
+logged_in_setup();
+pasties=readCookie("pasties");
+if (logged_in_user && logged_in_user=="")
+	{ $('edit_link').show(); }	
+else if (pasties)
+{
+	pasties=pasties.split("&");
+	if (pasties.include(175214)) 
+		{ $('edit_link').show(); }	
+}
+</script>
+
+
+</div>
+
+<br style="clear:both;" />
+
+</div>
+
+<div id="footer">
+<p class="legal">
+<a href="/legal/" style="color:#369;">Legal</a>
+</p>
+<p class="disclaim">
+<strong>
+	
+	Use Pastie in your quest to save humanity,<br /> not in your evil plots to take over the world!
+	</strong>
+
+</p>
+<p class="credit">
+  Created by <a href="http://www.workingwithrails.com/person/5337-josh-goebel">Josh Goebel</a>
+	<span class="pipe">|</span>
+	Hosted by <a href="http://railsmachine.com/">Rails Machine</a>
+</p>
+<br style="clear:both;" />
+</div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-413537-1";
+urchinTracker();
+</script>
+</body>
+</html>

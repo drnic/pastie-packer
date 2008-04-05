@@ -2,9 +2,19 @@ require 'pastie_packer/version'
 
 AUTHOR = 'Dr Nic Williams'  # can also be an array of Authors
 EMAIL = "drnicwilliams@gmail.com"
-DESCRIPTION = "description of gem"
-GEM_NAME = 'pastie_packer' # what ppl will type to install your gem
-RUBYFORGE_PROJECT = 'pastie_packer' # The unix name for your project
+DESCRIPTION = <<-EOS
+Prepare to pack or unpack piles of files with the pastie_packer.
+
+To pack a folder: #{File.basename($0)}
+To pack some files ending with "txt": find * | grep "txt$" | #{File.basename($0)}
+- It outputs the url of the prepared pastie, so you can pipe it to xargs:
+- pastie_packer | xargs open
+
+To unpack a packed pastie: #{File.basename($0)} http://pastie.caboo.se/175183
+- This unpacks the files into a subfolder 175138/
+EOS
+GEM_NAME = 'pastiepacker' # what ppl will type to install your gem
+RUBYFORGE_PROJECT = 'pastiepacker' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
 
@@ -59,7 +69,8 @@ $hoe = Hoe.new(GEM_NAME, VERS) do |p|
   # == Optional
   p.changes = p.paragraphs_of("History.txt", 0..1).join("\n\n")
   p.extra_deps = [
-    ['shared-mime-info', '>=0.1']
+    ['shared-mime-info', '>=0.1'],
+    ['hpricot', '>=0.6']
     ]     # An array of rubygem dependencies [name, version], e.g. [ ['active_support', '>= 1.3.1'] ]
   
   #p.spec_extras = {}    # A hash of extra values to set in the gemspec.

@@ -24,7 +24,7 @@ class PastiePacker
   end
 
   def unpack(target_path)
-    FileUtils.rm_rf "target_path/*" # unique pastie-number-based folder shouldn't be there; its not my fault!!!
+    FileUtils.rm_rf "#{target_path}/*" # destroys previously unpacked pastie with same id
     FileUtils.mkdir_p target_path
     FileUtils.cd target_path do
       files_contents = contents.split(/^## /)[1..-1] # ignore first ""

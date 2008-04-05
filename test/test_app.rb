@@ -4,7 +4,7 @@ class TestApp < Test::Unit::TestCase
   attr_reader :base_folder, :target_folder
 
   def setup
-    @base_folder    = File.dirname(__FILE__) + "/fixtures"
+    @base_folder    = File.dirname(__FILE__) + "/fixtures/sample_app"
     @target_folder = File.dirname(__FILE__) + "/unpack"
     FileUtils.mkdir_p target_folder
   end
@@ -60,5 +60,23 @@ class TestApp < Test::Unit::TestCase
     diff = `diff -ur #{base_folder} #{target_folder}/123456`
     assert_equal("", diff)
   end
-
+  
+  def test_unpack_private_pastie
+    PastiePacker.any_instance.expects(:args).
+      returns(["http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw"])
+    private_pastie_html = open(File.dirname(__FILE__) + "/fixtures/private_pastie.html")
+    PastiePacker.any_instance.expects(:fetch_pastie).
+      with("http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw").
+      returns(private_pastie_html)
+    PastiePacker.any_instance.expects(:fetch_pastie).
+      with("http://pastie.caboo.se/175214.txt?key=5hwfheniddqmyasmfcxaw").
+      returns($complete_pastie_and_header)
+    PastiePacker.any_instance.expects(:parse_options)
+    FileUtils.cd target_folder do
+      PastiePacker.run("http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw")
+    end
+    assert(File.directory?("#{target_folder}/5hwfheniddqmyasmfcxaw"), "/5hwfheniddqmyasmfcxaw folder not created")
+    diff = `diff -ur #{base_folder} #{target_folder}/5hwfheniddqmyasmfcxaw`
+    assert_equal("", diff)
+  end
 end

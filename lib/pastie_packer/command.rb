@@ -31,11 +31,20 @@ class PastiePacker
 
   def do_unpack(pastie_urls)
     pastie_urls.each do |raw_url|
-      url = raw_url.gsub(/\.txt$/,'')
-      unique_subfolder = url.match(/\/([^\/]*)$/)[1]
+      url = process_url(raw_url)
+      unique_subfolder = url.match(/[\/=]([^\/=]*)$/)[1]
       self.contents = fetch_pastie(url)
       unpack(File.join(FileUtils.pwd, unique_subfolder))
     end
     nil # so nothing is printed as a result
+  end
+  
+  def process_url(raw_url)
+    if raw_url =~ /private\/(.*)$/
+      doc = Hpricot(fetch_pastie(raw_url))
+      (doc/"a.utility").find { |a| a.inner_html == 'View' }.get_attribute("href")
+    else
+      raw_url.gsub(/\.txt$/,'')
+    end
   end
 end

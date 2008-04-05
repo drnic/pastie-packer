@@ -4,7 +4,7 @@ class TestConversion < Test::Unit::TestCase
   attr_reader :base_folder, :unpack_folder, :pastie
 
   def setup
-    @base_folder    = File.dirname(__FILE__) + "/fixtures"
+    @base_folder    = File.dirname(__FILE__) + "/fixtures/sample_app"
     @unpack_folder  = File.dirname(__FILE__) + "/unpacked"
     @pastie = PastiePacker.new
   end

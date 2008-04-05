@@ -6,6 +6,7 @@ require 'net/http'
 require 'timeout'
 require 'cgi'
 require 'optparse'
+require "open-uri"
 
 begin
   require 'rubygems'
@@ -13,6 +14,7 @@ rescue LoadError
 end
 
 require 'shared-mime-info' # shared-mime-info rubygem
+require 'hpricot'
 
 require "ruby-ext/hash"
 require "pastie_packer/io"
