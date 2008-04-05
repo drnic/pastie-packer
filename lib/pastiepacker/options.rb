@@ -47,7 +47,7 @@ BANNER
       opts.on("-H", "--no-header",
               "Prevents placing pastiepacker promotion in pasties",
               "That is, no 'about:' section is added to the top of pasties",
-              "Default: false") { |x| @no_header = x }
+              "Default: false") { |x| @no_header = !x }
       opts.on("-h", "--help",
               "Show this help message.") { puts opts; exit }
       self.args = opts.parse!(args)
