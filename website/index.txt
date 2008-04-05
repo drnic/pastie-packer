@@ -1,20 +1,71 @@
-h1. pastiepacker
+h1. Pastie Packer
 
 h1. &#x2192; 'pastiepacker'
 
+TODO: put this into pastie + use screenshot instead (raw text as alt="...")
+
+Prepare to _pack_ or _unpack_ piles of files with *pastiepacker*. The easiest, best distributing, viewable archiving tool since pencil and paper.
 
 h2. What
 
+A "pastie":http://pastie.caboo.se is a snippet of text/code stored on a single webpage. This makes it very easy to share the text over IM or IRC - you just copy+paste the url. As a bonus, pasties are syntax highlighted making them easier to read than if shared as plain text.
+
+The *pastiepacker* is a command-line tool to "pack" a selection of files (or by default, a whole recursive folder of files) into a single pastie. So a whole/part of a project can be quickly shared.
+
+It can also "unpack" a packed pastie back into files. The pastiepacker is therefore a simple, useful distributed archiving tool, using pasties for storage.
+
+For example, this pastie "XXX":http://xxx shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself!
+
+You can pack a whole folder or a selection of files. Any README/readme.* files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.
+
+Only ascii files are packed.
 
 h2. Installing
 
 <pre syntax="ruby">sudo gem install pastiepacker</pre>
 
-h2. The basics
+h2. The basics: packing files into a pastie
 
+To pack a folder: <code>pastiepacker</code>
 
-h2. Demonstration of usage
+Packing options:
 
+<pre>
+-p, --private           Posted pasties are private
+                           Ignored for unpacking
+                           Default: false
+-f, --format=FORMAT     Possess pasties with a particular persona
+                           Supported formats:
+                             c++, css, diff, html_rails, html, javascript, 
+                             php, plain_text, python, ruby, ruby_on_rails, 
+                             sql, shell-unix-generic
+                           Ignored for unpacking
+                           Default: ruby
+</pre>
+                                     
+To only pack a selection of files ending with *txt* you can pass a list of file names via STDIN:
+
+<pre>  find * | grep "txt$" | pastiepacker</pre>
+
+*pastiepacker* outputs the url of the prepared pastie, so you can pipe it to xargs:
+
+<pre>  pastiepacker | xargs open</pre>
+
+If the selection of files (within the current folder or the selection of files via STDIN) contains a readme file (readme.txt, README.txt, README.markdown, etc), that file will be packed at the top of the pastie, for the convenience of readers.
+
+h2. The basics: unpacking pasties into files
+
+To unpack a packed pastie: 
+
+<pre>  pastiepacker http://pastie.caboo.se/175183</pre>
+
+This unpacks the files into a subfolder 175138/
+
+To unpack a private pastie: 
+
+<pre>  pastiepacker http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw</pre>
+
+This unpacks the files into a subfolder 5hwfheniddqmyasmfcxaw/
 
 
 h2. Forum

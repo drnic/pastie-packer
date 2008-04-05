@@ -25,8 +25,10 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
-test/fixtures/README.txt
-test/fixtures/lib/myapp.rb
+test/fixtures/private_pastie.html
+test/fixtures/sample_app/History.txt
+test/fixtures/sample_app/README.txt
+test/fixtures/sample_app/lib/myapp.rb
 test/test_app.rb
 test/test_conversion.rb
 test/test_helper.rb

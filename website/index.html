@@ -1,11 +1,166 @@
-<html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<title>pastiepacker</title>
-		
-	</head>
-	<body id="body">
-		<p>This page has not yet been created for RubyGem <code>pastiepacker</code></p>
-		<p>To the developer: To generate it, update website/index.txt and run the rake task <code>website</code> to generate this <code>index.html</code> file.</p>
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      Pastie Packer
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>Pastie Packer</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/pastiepacker"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/pastiepacker" class="numbers">1.0.0</a>
+    </div>
+    <h1>&#x2192; &#8216;pastiepacker&#8217;</h1>
+
+
+	<p><span class="caps">TODO</span>: put this into pastie + use screenshot instead (raw text as alt=&#8221;...&#8221;)</p>
+
+
+	<p>Prepare to <em>pack</em> or <em>unpack</em> piles of files with <strong>pastiepacker</strong>. The easiest, best distributing, viewable archiving tool since pencil and paper.</p>
+
+
+	<h2>What</h2>
+
+
+	<p>A <a href="http://pastie.caboo.se">pastie</a> is a snippet of text/code stored on a single webpage. This makes it very easy to share the text over IM or <span class="caps">IRC</span> &#8211; you just copy+paste the url. As a bonus, pasties are syntax highlighted making them easier to read than if shared as plain text.</p>
+
+
+	<p>The <strong>pastiepacker</strong> is a command-line tool to &#8220;pack&#8221; a selection of files (or by default, a whole recursive folder of files) into a single pastie. So a whole/part of a project can be quickly shared.</p>
+
+
+	<p>It can also &#8220;unpack&#8221; a packed pastie back into files. The pastiepacker is therefore a simple, useful distributed archiving tool, using pasties for storage.</p>
+
+
+	<p>For example, this pastie <a href="http://xxx"><span class="caps">XXX</span></a> shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself!</p>
+
+
+	<p>You can pack a whole folder or a selection of files. Any <span class="caps">README</span>/readme.* files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.</p>
+
+
+	<p>Only ascii files are packed.</p>
+
+
+	<h2>Installing</h2>
+
+
+	<p><pre class='syntax'><span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">install</span> <span class="ident">pastiepacker</span></pre></p>
+
+
+	<h2>The basics: packing files into a pastie</h2>
+
+
+	<p>To pack a folder: <code>pastiepacker</code></p>
+
+
+	<p>Packing options:</p>
+
+
+<pre>
+-p, --private           Posted pasties are private
+                           Ignored for unpacking
+                           Default: false
+-f, --format=FORMAT     Possess pasties with a particular persona
+                           Supported formats:
+                             c++, css, diff, html_rails, html, javascript, 
+                             php, plain_text, python, ruby, ruby_on_rails, 
+                             sql, shell-unix-generic
+                           Ignored for unpacking
+                           Default: ruby
+</pre>
+
+	<p>To only pack a selection of files ending with <strong>txt</strong> you can pass a list of file names via <span class="caps">STDIN</span>:</p>
+
+
+<pre>  find * | grep "txt$" | pastiepacker</pre>
+
+	<p><strong>pastiepacker</strong> outputs the url of the prepared pastie, so you can pipe it to xargs:</p>
+
+
+<pre>  pastiepacker | xargs open</pre>
+
+	<p>If the selection of files (within the current folder or the selection of files via <span class="caps">STDIN</span>) contains a readme file (readme.txt, <span class="caps">README</span>.txt, <span class="caps">README</span>.markdown, etc), that file will be packed at the top of the pastie, for the convenience of readers.</p>
+
+
+	<h2>The basics: unpacking pasties into files</h2>
+
+
+	<p>To unpack a packed pastie:</p>
+
+
+<pre>  pastiepacker http://pastie.caboo.se/175183</pre>
+
+	<p>This unpacks the files into a subfolder 175138/</p>
+
+
+	<p>To unpack a private pastie:</p>
+
+
+<pre>  pastiepacker http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw</pre>
+
+	<p>This unpacks the files into a subfolder 5hwfheniddqmyasmfcxaw/</p>
+
+
+	<h2>Forum</h2>
+
+
+	<p><a href="http://groups.google.com/group/pastiepacker">http://groups.google.com/group/pastiepacker</a></p>
+
+
+	<p><span class="caps">TODO</span> &#8211; create Google Group &#8211; pastiepacker</p>
+
+
+	<h2>How to submit patches</h2>
+
+
+	<p>Read the <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/">8 steps for fixing other people&#8217;s code</a> and for section <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups">8b: Submit patch to Google Groups</a>, use the Google Group above.</p>
+
+
+	<p>The trunk repository is <code>svn://rubyforge.org/var/svn/pastiepacker/trunk</code> for anonymous access.</p>
+
+
+	<h2>License</h2>
+
+
+	<p>This code is free to use under the terms of the <span class="caps">MIT</span> license.</p>
+
+
+	<h2>Contact</h2>
+
+
+	<p>Comments are welcome. Send an email to <a href="mailto:drnicwilliams@gmail.com">Dr Nic Williams</a> via the <a href="http://groups.google.com/group/pastiepacker">forum</a></p>
+    <p class="coda">
+      <a href="drnicwilliams@gmail.com">Dr Nic Williams</a>, 5th April 2008<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>,
+      by Daniel Cadenas via <a href="http://depgraph.rubyforge.org/">DepGraph</a>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
 </html>
