@@ -24,7 +24,7 @@ class TestApp < Test::Unit::TestCase
 
   def test_pack_with_file_names
     PastiePacker::API.any_instance.expects(:paste).
-      with($complete_pastie_and_header_for_files, 'ruby', false).
+      with($some_files_and_header, 'ruby', false).
       returns("http://pastie.caboo.se/123456")
     files = ["README.txt\n", "lib/myapp.rb\n"]
     PastiePacker.any_instance.expects(:input_lines).returns(files)

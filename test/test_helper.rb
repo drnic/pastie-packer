@@ -16,6 +16,11 @@ $complete_pastie = <<-EOS
 This is the readme.txt
 
 
+## History.txt
+== 1.0.0
+
+* Some history
+
 ## lib/myapp.rb
 class Myapp
 
@@ -23,14 +28,24 @@ end
 EOS
 
 
-$complete_pastie_and_header_for_files = <<-EOS + $complete_pastie
-## about:
-Files uploaded by pastiepacker.
-To unpack files see http://pastiepacker.rubyforge.org
-EOS
-
 $complete_pastie_and_header = <<-EOS + $complete_pastie
 ## about:sample_app
 Files for sample_app uploaded by pastiepacker.
 To unpack files see http://pastiepacker.rubyforge.org
+
+EOS
+
+$some_files_and_header = <<-EOS
+## about:
+Files uploaded by pastiepacker.
+To unpack files see http://pastiepacker.rubyforge.org
+
+## README.txt
+This is the readme.txt
+
+
+## lib/myapp.rb
+class Myapp
+
+end
 EOS

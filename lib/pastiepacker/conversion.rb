@@ -8,6 +8,8 @@ class PastiePacker
   end
 
   def files_to_string(files)
+    readme = files.find { |f| f =~ /^readme/i }
+    files = [readme] + (files - [readme]) if readme
     output = files.inject([]) do |mem, file|
       file = file.strip
       if File.file?(file)
