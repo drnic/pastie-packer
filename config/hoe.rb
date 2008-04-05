@@ -5,13 +5,13 @@ EMAIL = "drnicwilliams@gmail.com"
 DESCRIPTION = <<-EOS
 Prepare to pack or unpack piles of files with the pastiepacker.
 
-To pack a folder: #{File.basename($0)}
-To pack some files ending with "txt": find * | grep "txt$" | #{File.basename($0)}
+To pack a folder: pastiepacker
+To pack some files ending with "txt": find * | grep "txt$" | pastiepacker
 - It outputs the url of the prepared pastie, so you can pipe it to xargs:
 - pastiepacker | xargs open
 
-To unpack a packed pastie: #{File.basename($0)} http://pastie.caboo.se/175183
-- This unpacks the files into a subfolder 175138/
+To unpack a packed pastie: pastiepacker http://pastie.caboo.se/175886
+- This unpacks the files into a subfolder 175886/
 EOS
 GEM_NAME = 'pastiepacker' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'pastiepacker' # The unix name for your project
