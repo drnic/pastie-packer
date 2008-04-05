@@ -24,6 +24,11 @@ Packing options:
     -p, --private             Posted pasties are private
                               Ignored for unpacking
                               Default: false
+    -s, --stdout              Prints packed pasties instead of posting
+                              Default: false
+    -H, --no-header           Prevents placing pastiepacker promotion in pasties
+                              That is, no 'about:' section is added to the top of pasties
+                              Default: false
     -h, --help                Show this help message.                                     
     
 To only pack a selection of files ending with *txt* you can pass a list of file names via STDIN: 
