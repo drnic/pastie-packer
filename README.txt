@@ -53,6 +53,14 @@ To test if you have these, the following should work:
 
 * sudo gem install pastiepacker
 
+== CONTRIBUTIONS
+
+The source for the Pastie Packer is available via git: http://github.com/drnic/pastie-packer/tree/master
+
+    git clone git://github.com/drnic/pastie-packer.git pastiepacker
+    cd pastiepacker
+    rake install_gem
+
 == LICENSE:
 
 (The MIT License)
