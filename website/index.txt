@@ -4,6 +4,10 @@ h1. &#x2192; 'pastiepacker'
 
 TODO: put this into pastie + use screenshot instead (raw text as alt="...")
 
+TODO: create google group
+      
+TODO: set git url for contributions
+
 Prepare to _pack_ or _unpack_ piles of files with *pastiepacker*. The easiest, best distributing, viewable archiving tool since pencil and paper.
 
 h2. What

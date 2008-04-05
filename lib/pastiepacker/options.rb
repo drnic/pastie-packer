@@ -1,5 +1,5 @@
 class PastiePacker
-  attr_reader :format
+  attr_accessor :format, :extra_message
   attr_accessor :args
 
   def private?; @private; end
@@ -7,6 +7,7 @@ class PastiePacker
   def parse_options(args)
     @private = false
     @format  = "ruby"
+    @extra_message = nil
 
     OptionParser.new do |opts|
       opts.banner = <<BANNER
@@ -23,16 +24,19 @@ To unpack a packed pastie: #{File.basename($0)} http://pastie.caboo.se/175183
 Options are:
 BANNER
       opts.separator ""
-      opts.on("-p", "--private",
-              "Posted pasties are private",
-              "Ignored for unpacking",
-              "Default: false") { |x| @private = x }
       opts.on("-f", "--format=FORMAT", String,
               "Possess pasties with a particular persona",
               "Supported formats:",
               AVAILABLE_PARSERS.join(', '),
               "Ignored for unpacking",
               "Default: ruby") { |x| @format = x }
+      opts.on("-m", "--message=MESSAGE", String,
+              "Promotional passage for your pastie",
+              "Default: standard 'about' message") { |x| @extra_message = x }
+      opts.on("-p", "--private",
+              "Posted pasties are private",
+              "Ignored for unpacking",
+              "Default: false") { |x| @private = x }
       opts.on("-h", "--help",
               "Show this help message.") { puts opts; exit }
       self.args = opts.parse!(args)

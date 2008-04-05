@@ -33,6 +33,17 @@ class TestApp < Test::Unit::TestCase
     end
   end
 
+  def test_pack_with_extra_comment
+    pastie = PastiePacker.new
+    pastie.extra_message = 'This is a bonus comment.'
+    PastiePacker::API.any_instance.expects(:paste).
+      with($complete_pastie_and_header_and_comment, nil, nil).
+      returns("http://pastie.caboo.se/123456")
+    FileUtils.cd base_folder do
+      pastie.do_pack
+    end
+  end
+
   def test_unpack_within_current_folder
     PastiePacker.any_instance.expects(:fetch_pastie).
       with("http://pastie.caboo.se/123456").
@@ -60,7 +71,7 @@ class TestApp < Test::Unit::TestCase
     diff = `diff -ur #{base_folder} #{target_folder}/123456`
     assert_equal("", diff)
   end
-  
+
   def test_unpack_private_pastie
     PastiePacker.any_instance.expects(:args).
       returns(["http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw"])

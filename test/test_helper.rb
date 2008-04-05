@@ -35,6 +35,15 @@ To unpack files see http://pastiepacker.rubyforge.org
 
 EOS
 
+$complete_pastie_and_header_and_comment = <<-EOS + $complete_pastie
+## about:sample_app
+This is a bonus comment.
+
+Files for sample_app uploaded by pastiepacker.
+To unpack files see http://pastiepacker.rubyforge.org
+
+EOS
+
 $some_files_and_header = <<-EOS
 ## about:
 Files uploaded by pastiepacker.
