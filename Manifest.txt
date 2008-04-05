@@ -16,7 +16,6 @@ lib/pastiepacker/options.rb
 lib/pastiepacker/upload.rb
 lib/pastiepacker/version.rb
 lib/ruby-ext/hash.rb
-log/debug.log
 script/console
 script/destroy
 script/generate
