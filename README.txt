@@ -6,23 +6,26 @@
 
 Prepare to pack or unpack piles of files with the pastiepacker.
 
-== FEATURES/PROBLEMS:
-
 == SYNOPSIS:
 
-To pack a folder: pastiepacker
-  Packing options:
-    -p, --private           Posted pasties are private
-                               Ignored for unpacking
-                               Default: false
-    -f, --format=FORMAT     Possess pasties with a particular persona
-                               Supported formats:
-                                 c++, css, diff, html_rails, html, javascript, 
-                                 php, plain_text, python, ruby, ruby_on_rails, 
-                                 sql, shell-unix-generic
-                               Ignored for unpacking
-                               Default: ruby
-                                     
+To pack a folder: +pastiepacker+
+
+Packing options:
+    
+    -f, --format=FORMAT       Possess pasties with a particular persona
+                              Supported formats:
+                              c++, css, diff, html_rails, html, 
+                              javascript, php, plain_text, python, 
+                              ruby, ruby_on_rails, sql, shell-unix-generic
+                              Ignored for unpacking
+                              Default: ruby
+    -m, --message=MESSAGE     Promotional passage for your pastie
+                              Default: standard 'about' message
+    -p, --private             Posted pasties are private
+                              Ignored for unpacking
+                              Default: false
+    -h, --help                Show this help message.                                     
+    
 To only pack a selection of files ending with *txt* you can pass a list of file names via STDIN: 
 
     find * | grep "txt$" | pastiepacker

@@ -41,6 +41,12 @@
 	<p><span class="caps">TODO</span>: put this into pastie + use screenshot instead (raw text as alt=&#8221;...&#8221;)</p>
 
 
+	<p><span class="caps">TODO</span>: create google group</p>
+
+
+	<p><span class="caps">TODO</span>: set git url for contributions</p>
+
+
 	<p>Prepare to <em>pack</em> or <em>unpack</em> piles of files with <strong>pastiepacker</strong>. The easiest, best distributing, viewable archiving tool since pencil and paper.</p>
 
 
@@ -81,16 +87,19 @@
 
 
 <pre>
--p, --private           Posted pasties are private
-                           Ignored for unpacking
-                           Default: false
--f, --format=FORMAT     Possess pasties with a particular persona
-                           Supported formats:
-                             c++, css, diff, html_rails, html, javascript, 
-                             php, plain_text, python, ruby, ruby_on_rails, 
-                             sql, shell-unix-generic
-                           Ignored for unpacking
-                           Default: ruby
+-f, --format=FORMAT       Possess pasties with a particular persona
+                          Supported formats:
+                          c++, css, diff, html_rails, html, 
+                          javascript, php, plain_text, python, 
+                          ruby, ruby_on_rails, sql, shell-unix-generic
+                          Ignored for unpacking
+                          Default: ruby
+-m, --message=MESSAGE     Promotional passage for your pastie
+                          Default: standard 'about' message
+-p, --private             Posted pasties are private
+                          Ignored for unpacking
+                          Default: false
+-h, --help                Show this help message.                                     
 </pre>
 
 	<p>To only pack a selection of files ending with <strong>txt</strong> you can pass a list of file names via <span class="caps">STDIN</span>:</p>
@@ -155,8 +164,7 @@
 	<p>Comments are welcome. Send an email to <a href="mailto:drnicwilliams@gmail.com">Dr Nic Williams</a> via the <a href="http://groups.google.com/group/pastiepacker">forum</a></p>
     <p class="coda">
       <a href="drnicwilliams@gmail.com">Dr Nic Williams</a>, 5th April 2008<br>
-      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>,
-      by Daniel Cadenas via <a href="http://depgraph.rubyforge.org/">DepGraph</a>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
     </p>
 </div>
 

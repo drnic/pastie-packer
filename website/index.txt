@@ -35,16 +35,19 @@ To pack a folder: <code>pastiepacker</code>
 Packing options:
 
 <pre>
--p, --private           Posted pasties are private
-                           Ignored for unpacking
-                           Default: false
--f, --format=FORMAT     Possess pasties with a particular persona
-                           Supported formats:
-                             c++, css, diff, html_rails, html, javascript, 
-                             php, plain_text, python, ruby, ruby_on_rails, 
-                             sql, shell-unix-generic
-                           Ignored for unpacking
-                           Default: ruby
+-f, --format=FORMAT       Possess pasties with a particular persona
+                          Supported formats:
+                          c++, css, diff, html_rails, html, 
+                          javascript, php, plain_text, python, 
+                          ruby, ruby_on_rails, sql, shell-unix-generic
+                          Ignored for unpacking
+                          Default: ruby
+-m, --message=MESSAGE     Promotional passage for your pastie
+                          Default: standard 'about' message
+-p, --private             Posted pasties are private
+                          Ignored for unpacking
+                          Default: false
+-h, --help                Show this help message.                                     
 </pre>
                                      
 To only pack a selection of files ending with *txt* you can pass a list of file names via STDIN:
