@@ -60,6 +60,12 @@ The source for the Pastie Packer is available via git: http://github.com/drnic/p
     git clone git://github.com/drnic/pastie-packer.git pastiepacker
     cd pastiepacker
     rake install_gem
+    
+It is also available via rubyforge.org:
+  
+    git clone git://rubyforge.org/pastiepacker.git
+    cd pastiepacker
+    rake install_gem
 
 == LICENSE:
 

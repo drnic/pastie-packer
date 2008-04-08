@@ -83,6 +83,12 @@ The source for the Pastie Packer is "available via git":http://github.com/drnic/
     cd pastiepacker
     rake install_gem
 
+It is also available via rubyforge.org:
+
+    git clone git://rubyforge.org/pastiepacker.git
+    cd pastiepacker
+    rake install_gem
+
 Or, you can unpack the 1.0.0 release of the pastiepacker from its "own pastie":http://pastie.caboo.se/175886!
 
 h2. License
