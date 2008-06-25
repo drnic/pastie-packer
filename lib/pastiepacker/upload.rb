@@ -1,7 +1,9 @@
 class PastiePacker
   AVAILABLE_PARSERS = %w(
-    c++ css diff html_rails html javascript
+    actionscript c++ css diff html_rails html 
+    java javascript
     php plain_text python
+    objective-c++
     ruby ruby_on_rails sql
     shell-unix-generic
   )
@@ -22,7 +24,7 @@ class PastiePacker
       http = Net::HTTP.new(PASTIE_URI)
       query_string = { :paste => {
         :body => CGI.escape(body),
-        :parser => format,
+        :parser => CGI.escape(format),
         :restricted => is_private,
         :authorization => 'burger'
       }}.to_query_string

@@ -1,3 +1,7 @@
+== 1.1.0 2008-06-25
+
+* Added objective-c++, java and actionscript formats
+
 == 1.0.0 2008-04-03
 
 * 1 major enhancement:
