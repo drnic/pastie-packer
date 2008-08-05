@@ -33,7 +33,7 @@
     <h1>Pastie Packer</h1>
     <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/pastiepacker"; return false'>
       <p>Get Version</p>
-      <a href="http://rubyforge.org/projects/pastiepacker" class="numbers">1.0.0</a>
+      <a href="http://rubyforge.org/projects/pastiepacker" class="numbers">1.1.1</a>
     </div>
     <h1>&#x2192; &#8216;pastiepacker&#8217;</h1>
 
@@ -44,7 +44,7 @@
 	<h2>What</h2>
 
 
-	<p>A <a href="http://pastie.caboo.se">pastie</a> is a snippet of text/code stored on a single webpage. This makes it very easy to share the text over IM or <span class="caps">IRC</span> &#8211; you just copy+paste the url. As a bonus, pasties are syntax highlighted making them easier to read than if shared as plain text.</p>
+	<p>A <a href="http://pastie.caboo.se">pastie</a> is a snippet of text/code stored on a single webpage. This makes it very easy to share the text over IM or <span class="caps">IRC </span>- you just copy+paste the url. As a bonus, pasties are syntax highlighted making them easier to read than if shared as plain text.</p>
 
 
 	<p>The <strong>pastiepacker</strong> is a command-line tool to &#8220;pack&#8221; a selection of files (or by default, a whole recursive folder of files) into a single pastie. So a whole/part of a project can be quickly shared.</p>
@@ -56,7 +56,7 @@
 	<p>For example, this pastie <a href="http://pastie.caboo.se/175886">http://pastie.caboo.se/175886</a> shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself! (release 1.0.0)</p>
 
 
-	<p>You can pack a whole folder or a selection of files. Any <span class="caps">README</span>/readme.* files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.</p>
+	<p>You can pack a whole folder or a selection of files. Any <span class="caps">README</span>/readme.<strong> files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.</p>
 
 
 	<p>Only ascii files are packed.</p>
@@ -93,12 +93,12 @@
 -h, --help                Show this help message.                                     
 </pre>
 
-	<p>To only pack a selection of files ending with <strong>txt</strong> you can pass a list of file names via <span class="caps">STDIN</span>:</p>
+	<p>To only pack a selection of files ending with </strong>txt<strong> you can pass a list of file names via <span class="caps">STDIN</span>:</p>
 
 
 <pre>  find * | grep "txt$" | pastiepacker</pre>
 
-	<p><strong>pastiepacker</strong> outputs the url of the prepared pastie, so you can pipe it to xargs:</p>
+	<p></strong>pastiepacker* outputs the url of the prepared pastie, so you can pipe it to xargs:</p>
 
 
 <pre>  pastiepacker | xargs open</pre>
@@ -167,7 +167,7 @@ rake install_gem</code></pre>
 
 	<p>Comments are welcome. Send an email to <a href="mailto:drnicwilliams@gmail.com">Dr Nic Williams</a> via the <a href="http://groups.google.com/group/pastiepacker">forum</a></p>
     <p class="coda">
-      <a href="drnicwilliams@gmail.com">Dr Nic Williams</a>, 8th April 2008<br>
+      <a href="drnicwilliams@gmail.com">Dr Nic Williams</a>, 25th June 2008<br>
       Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
     </p>
 </div>

@@ -34,6 +34,7 @@ class PastiePacker
       url = process_url(raw_url)
       unique_subfolder = url.match(/[\/=]([^\/=]*)$/)[1]
       self.contents = fetch_pastie(url)
+      self.contents = self.contents.read if self.contents.respond_to?(:read)
       unpack(File.join(FileUtils.pwd, unique_subfolder))
     end
     nil # so nothing is printed as a result

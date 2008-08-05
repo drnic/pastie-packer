@@ -1,3 +1,7 @@
+== 1.1.1 2008-08-06
+
+* Fixed fetching of pastie urls
+
 == 1.1.0 2008-06-25
 
 * Added objective-c++, java and actionscript formats
