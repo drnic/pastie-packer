@@ -1,0 +1,101 @@
+h1. Pastie Packer
+
+h1. &#x2192; 'pastiepacker'
+
+<img src="images/pastiepacker pasted into own pastie.jpg" width="549" height="329" alt="Prepare to pack or unpack piles of files with pastiepacker. The easiest, best distributing, viewable archiving tool since pencil and paper.">
+
+h2. What
+
+A "pastie":http://pastie.caboo.se is a snippet of text/code stored on a single webpage. This makes it very easy to share the text over IM or IRC - you just copy+paste the url. As a bonus, pasties are syntax highlighted making them easier to read than if shared as plain text.
+
+The *pastiepacker* is a command-line tool to "pack" a selection of files (or by default, a whole recursive folder of files) into a single pastie. So a whole/part of a project can be quickly shared.
+
+It can also "unpack" a packed pastie back into files. The pastiepacker is therefore a simple, useful distributed archiving tool, using pasties for storage.
+
+For example, this pastie "http://pastie.caboo.se/175886":http://pastie.caboo.se/175886 shows a selection of files packed into a pastie. It just happens to be the source for pastiepacker itself! (release 1.0.0)
+
+You can pack a whole folder or a selection of files. Any README/readme.* files are placed at the front of the pastie, because that seems helpful. The packed pasties include information on how to unpack the pastie back into raw files.
+
+Only ascii files are packed.
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install pastiepacker</pre>
+
+h2. The basics: packing files into a pastie
+
+To pack a folder: <code>pastiepacker</code>
+
+Packing options:
+
+<pre>
+-f, --format=FORMAT       Possess pasties with a particular persona
+                          Supported formats:
+                          c++, css, diff, html_rails, html, 
+                          javascript, php, plain_text, python, 
+                          ruby, ruby_on_rails, sql, shell-unix-generic
+                          Default: ruby
+-m, --message=MESSAGE     Promotional passage for your pastie
+-p, --private             Posted pasties are private
+                          Ignored for unpacking
+-s, --stdout              Prints packed pasties instead of posting
+-H, --no-header           Prevents placing pastiepacker promotion in pasties
+                          That is, no 'about:' section is added to the top of pasties
+-h, --help                Show this help message.                                     
+</pre>
+                                     
+To only pack a selection of files ending with *txt* you can pass a list of file names via STDIN:
+
+<pre>  find * | grep "txt$" | pastiepacker</pre>
+
+*pastiepacker* outputs the url of the prepared pastie, so you can pipe it to xargs:
+
+<pre>  pastiepacker | xargs open</pre>
+
+If the selection of files (within the current folder or the selection of files via STDIN) contains a readme file (readme.txt, README.txt, README.markdown, etc), that file will be packed at the top of the pastie, for the convenience of readers.
+
+h2. The basics: unpacking pasties into files
+
+To unpack a packed pastie: 
+
+<pre>  pastiepacker http://pastie.caboo.se/175183</pre>
+
+This unpacks the files into a subfolder 175138/
+
+To unpack a private pastie: 
+
+<pre>  pastiepacker http://pastie.caboo.se/private/5hwfheniddqmyasmfcxaw</pre>
+
+This unpacks the files into a subfolder 5hwfheniddqmyasmfcxaw/
+
+
+h2. Forum
+
+"http://groups.google.com/group/drnicutilities":http://groups.google.com/group/drnicutilities
+
+h2. How to submit patches
+
+Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
+
+The source for the Pastie Packer is "available via git":http://github.com/drnic/pastie-packer/tree/master.
+
+    git clone git://github.com/drnic/pastie-packer.git pastiepacker
+    cd pastiepacker
+    rake install_gem
+
+It is also available via rubyforge.org:
+
+    git clone git://rubyforge.org/pastiepacker.git
+    cd pastiepacker
+    rake install_gem
+
+Or, you can unpack the 1.0.0 release of the pastiepacker from its "own pastie":http://pastie.caboo.se/175886!
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Dr Nic Williams":mailto:drnicwilliams@gmail.com via the "forum":http://groups.google.com/group/pastiepacker
+
